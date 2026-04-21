@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Centennial Apartments - Modern student and professional housing with premium amenities.">
+  <meta name="keywords" content="apartments, rental, student housing, Centennial, accommodation">
+  <meta name="author" content="Centennial Apartments">
+  <title>Centennial Apartments - Modern Housing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">CENTENNIAL</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#available-units">Units</a>
+      <a href="#about">About</a>
+      <button id="login-btn" class="nav-btn">Login</button>
+      <span id="inquiry-logout" style="display:none;">
+        <button id="inquiry-logout-btn" class="nav-btn">Logout</button>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <img src="hero.jfif" alt="Hero background" class="hero-bg">
+  <div class="hero-content">
+    <h1>Welcome to Centennial Apartments</h1>
+    <p>Premium living spaces for students and professionals</p>
+    <button id="explore-btn" class="btn btn-large">Explore Available Units</button>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <h2>About Centennial Apartments</h2>
+    <div class="about-content">
+      <p>At Centennial Apartments, we provide modern, comfortable, and affordable housing solutions for students and young professionals. Our community features state-of-the-art amenities, secure management, and 24/7 support.</p>
+      <div class="features-grid">
+        <div class="feature-box">
+          <h4>Secure & Safe</h4>
+          <p>24/7 security monitoring and controlled access</p>
+        </div>
+        <div class="feature-box">
+          <h4>Modern Amenities</h4>
+          <p>Fully equipped units with quality furnishings</p>
+        </div>
+        <div class="feature-box">
+          <h4>Community Support</h4>
+          <p>Responsive management and tenant support</p>
+        </div>
+        <div class="feature-box">
+          <h4>Online Portal</h4>
+          <p>Easy access to bills, announcements, and requests</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="available-units" id="available-units">
+  <div class="container">
+    <h2>Available Units</h2>
+    <div class="units-filter">
+      <button class="filter-btn active" id="all-units-btn">All Units</button>
+      <div class="filter-dropdowns">
+        <select id="floor-filter" class="filter-select">
+          <option value="all">All Floors</option>
+          <option value="1">1st Floor</option>
+          <option value="2">2nd Floor</option>
+          <option value="3">3rd Floor</option>
+          <option value="4">4th Floor</option>
+          <option value="5">5th Floor</option>
+        </select>
+        
+        <select id="bedroom-filter" class="filter-select">
+          <option value="all">All Bedrooms</option>
+          <option value="studio">Studio</option>
+          <option value="1bed">1 Bedroom</option>
+          <option value="2bed">2 Bedroom</option>
+          <option value="3bed">3 Bedroom</option>
+        </select>
+        
+        <select id="budget-filter" class="filter-select">
+          <option value="all">All Budgets</option>
+          <option value="1000-1300">$1,000 - $1,300</option>
+          <option value="1300-1600">$1,300 - $1,600</option>
+          <option value="1600-2000">$1,600 - $2,000</option>
+          <option value="2000-2500">$2,000 - $2,500</option>
+          <option value="2500-3000">$2,500 - $3,000</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="units-grid">
+      <div class="unit-card" data-type="studio" data-floor="1" data-price="1200">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="Studio Unit">
+          <span class="unit-badge">Studio</span>
+        </div>
+        <div class="unit-info">
+          <h3>Studio - Unit 101</h3>
+          <p class="unit-floor">Floor: 1st</p>
+          <div class="unit-details">
+            <span>350 sq ft</span>
+            <span> 1 Bed</span>
+            <span> 1 Bath</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi Included</p>
+          <p class="unit-price">$1,200<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('Studio 101')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="studio" data-floor="1" data-price="1200">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="Studio Unit">
+          <span class="unit-badge">Studio</span>
+        </div>
+        <div class="unit-info">
+          <h3>Studio - Unit 102</h3>
+          <p class="unit-floor">Floor: 1st</p>
+          <div class="unit-details">
+            <span> 350 sq ft</span>
+            <span> 1 Bed</span>
+            <span> 1 Bath</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi Included</p>
+          <p class="unit-price">$1,200<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('Studio 102')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="1bed" data-floor="2" data-price="1600">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="1 Bedroom Unit">
+          <span class="unit-badge">1 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>1 Bedroom - Unit 201</h3>
+          <p class="unit-floor">Floor: 2nd</p>
+          <div class="unit-details">
+            <span> 550 sq ft</span>
+            <span> 1 Bed</span>
+            <span> 1 Bath</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi Included • Balcony</p>
+          <p class="unit-price">$1,600<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('1BR 201')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="1bed" data-floor="2" data-price="1600">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="1 Bedroom Unit">
+          <span class="unit-badge">1 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>1 Bedroom - Unit 202</h3>
+          <p class="unit-floor">Floor: 2nd</p>
+          <div class="unit-details">
+            <span> 550 sq ft</span>
+            <span> 1 Bed</span>
+            <span> 1 Bath</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi Included • Balcony</p>
+          <p class="unit-price">$1,600<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('1BR 202')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="1bed" data-floor="2" data-price="1600">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="1 Bedroom Unit">
+          <span class="unit-badge">1 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>1 Bedroom - Unit 203</h3>
+          <p class="unit-floor">Floor: 2nd</p>
+          <div class="unit-details">
+            <span> 550 sq ft</span>
+            <span> 1 Bed</span>
+            <span> 1 Bath</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi Included • Balcony</p>
+          <p class="unit-price">$1,600<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('1BR 203')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="2bed" data-floor="3" data-price="2000">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="2 Bedroom Unit">
+          <span class="unit-badge">2 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>2 Bedroom - Unit 301</h3>
+          <p class="unit-floor">Floor: 3rd</p>
+          <div class="unit-details">
+            <span> 750 sq ft</span>
+            <span> 2 Beds</span>
+            <span> 2 Baths</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi • Balcony • Kitchen</p>
+          <p class="unit-price">$2,000<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('2BR 301')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="2bed" data-floor="3" data-price="2000">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="2 Bedroom Unit">
+          <span class="unit-badge">2 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>2 Bedroom - Unit 302</h3>
+          <p class="unit-floor">Floor: 3rd</p>
+          <div class="unit-details">
+            <span> 750 sq ft</span>
+            <span> 2 Beds</span>
+            <span> 2 Baths</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi • Balcony • Kitchen</p>
+          <p class="unit-price">$2,000<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('2BR 302')">View Details</button>
+        </div>
+      </div>
+
+      <!-- Additional Units for More Variety -->
+      <div class="unit-card" data-type="studio" data-floor="4" data-price="1100">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="Studio Unit">
+          <span class="unit-badge">Studio</span>
+        </div>
+        <div class="unit-info">
+          <h3>Studio - Unit 401</h3>
+          <p class="unit-floor">Floor: 4th</p>
+          <div class="unit-details">
+            <span> 320 sq ft</span>
+            <span> 1 Bed</span>
+            <span> 1 Bath</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi Included</p>
+          <p class="unit-price">$1,100<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('Studio 401')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="1bed" data-floor="4" data-price="1500">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="1 Bedroom Unit">
+          <span class="unit-badge">1 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>1 Bedroom - Unit 402</h3>
+          <p class="unit-floor">Floor: 4th</p>
+          <div class="unit-details">
+            <span> 520 sq ft</span>
+            <span> 1 Bed</span>
+            <span> 1 Bath</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi Included • City View</p>
+          <p class="unit-price">$1,500<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('1BR 402')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="2bed" data-floor="4" data-price="2200">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="2 Bedroom Unit">
+          <span class="unit-badge">2 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>2 Bedroom - Unit 403</h3>
+          <p class="unit-floor">Floor: 4th</p>
+          <div class="unit-details">
+            <span> 780 sq ft</span>
+            <span> 2 Beds</span>
+            <span> 2 Baths</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi • Balcony • Premium View</p>
+          <p class="unit-price">$2,200<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('2BR 403')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="3bed" data-floor="5" data-price="2800">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="3 Bedroom Unit">
+          <span class="unit-badge">3 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>3 Bedroom - Unit 501</h3>
+          <p class="unit-floor">Floor: 5th</p>
+          <div class="unit-details">
+            <span> 1100 sq ft</span>
+            <span> 3 Beds</span>
+            <span> 2 Baths</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi • 2 Balconies • Premium Amenities</p>
+          <p class="unit-price">$2,800<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('3BR 501')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="studio" data-floor="5" data-price="1300">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="Studio Unit">
+          <span class="unit-badge">Studio</span>
+        </div>
+        <div class="unit-info">
+          <h3>Studio - Unit 502</h3>
+          <p class="unit-floor">Floor: 5th</p>
+          <div class="unit-details">
+            <span> 380 sq ft</span>
+            <span> 1 Bed</span>
+            <span> 1 Bath</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi • Premium Location</p>
+          <p class="unit-price">$1,300<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('Studio 502')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="1bed" data-floor="5" data-price="1800">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="1 Bedroom Unit">
+          <span class="unit-badge">1 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>1 Bedroom - Unit 503</h3>
+          <p class="unit-floor">Floor: 5th</p>
+          <div class="unit-details">
+            <span> 600 sq ft</span>
+            <span> 1 Bed</span>
+            <span> 1 Bath</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi • Balcony • Penthouse View</p>
+          <p class="unit-price">$1,800<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('1BR 503')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="2bed" data-floor="5" data-price="2500">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="2 Bedroom Unit">
+          <span class="unit-badge">2 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>2 Bedroom - Unit 504</h3>
+          <p class="unit-floor">Floor: 5th</p>
+          <div class="unit-details">
+            <span> 850 sq ft</span>
+            <span> 2 Beds</span>
+            <span> 2 Baths</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi • 2 Balconies • Premium Suite</p>
+          <p class="unit-price">$2,500<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('2BR 504')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="studio" data-floor="1" data-price="1000">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="Studio Unit">
+          <span class="unit-badge">Studio</span>
+        </div>
+        <div class="unit-info">
+          <h3>Studio - Unit 103</h3>
+          <p class="unit-floor">Floor: 1st</p>
+          <div class="unit-details">
+            <span> 300 sq ft</span>
+            <span> 1 Bed</span>
+            <span> 1 Bath</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi Included • Ground Floor</p>
+          <p class="unit-price">$1,000<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('Studio 103')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="3bed" data-floor="4" data-price="2600">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="3 Bedroom Unit">
+          <span class="unit-badge">3 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>3 Bedroom - Unit 404</h3>
+          <p class="unit-floor">Floor: 4th</p>
+          <div class="unit-details">
+            <span> 1050 sq ft</span>
+            <span> 3 Beds</span>
+            <span> 2 Baths</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi • Balcony • Family Suite</p>
+          <p class="unit-price">$2,600<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('3BR 404')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="1bed" data-floor="1" data-price="1250">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="1 Bedroom Unit">
+          <span class="unit-badge">1 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>1 Bedroom - Unit 104</h3>
+          <p class="unit-floor">Floor: 1st</p>
+          <div class="unit-details">
+            <span> 480 sq ft</span>
+            <span> 1 Bed</span>
+            <span> 1 Bath</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi Included • Private Entrance</p>
+          <p class="unit-price">$1,250<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('1BR 104')">View Details</button>
+        </div>
+      </div>
+
+      <div class="unit-card" data-type="2bed" data-floor="2" data-price="1900">
+        <div class="unit-image">
+          <img src="hero.jfif" alt="2 Bedroom Unit">
+          <span class="unit-badge">2 Bed</span>
+        </div>
+        <div class="unit-info">
+          <h3>2 Bedroom - Unit 205</h3>
+          <p class="unit-floor">Floor: 2nd</p>
+          <div class="unit-details">
+            <span> 720 sq ft</span>
+            <span> 2 Beds</span>
+            <span> 2 Baths</span>
+          </div>
+          <p class="unit-amenities">Furnished • AC • WiFi • Balcony • Updated Kitchen</p>
+          <p class="unit-price">$1,900<span>/month</span></p>
+          <button class="btn-view" onclick="viewUnitDetails('2BR 205')">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="auth-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="modal-header">
+      <button id="login-tab-btn" class="tab-btn active">Inquiry</button>
+      <button id="tenant-tab-btn" class="tab-btn">Tenant</button>
+      <button id="admin-tab-btn" class="tab-btn">Admin</button>
+      <button id="register-tab-btn" class="tab-btn">Register</button>
+    </div>
+    <div id="login-form" class="form-container active">
+      <h3>Login for Inquiries</h3>
+      <form class="auth-form" id="login-form-element">
+        <input type="email" id="email-input" placeholder="Email Address" required>
+        <input type="password" id="password-input" placeholder="Password" required>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p class="form-note">Login with your registered account</p>
+    </div>
+    <div id="tenant-form" class="form-container">
+      <h3>Tenant Login</h3>
+      <form class="auth-form" id="tenant-form-element">
+        <input type="email" id="tenant-email-input" placeholder="Email Address" required>
+        <input type="password" id="tenant-password-input" placeholder="Password" required>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p class="form-note">Enter your tenant credentials</p>
+    </div>
+    <div id="admin-form" class="form-container">
+      <h3>Admin Login</h3>
+      <form class="auth-form" id="admin-form-element">
+        <input type="email" id="admin-email-input" placeholder="Email Address" required>
+        <input type="password" id="admin-password-input" placeholder="Password" required>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p class="form-note">Administrator access only</p>
+    </div>
+    <div id="register-form" class="form-container">
+      <h3>Register for Inquiries</h3>
+      <form class="auth-form" id="register-form-element">
+        <input type="text" id="reg-name" placeholder="Full Name" required>
+        <input type="email" id="reg-email" placeholder="Email Address" required>
+        <input type="tel" id="reg-phone" placeholder="Phone Number" required>
+        <input type="password" id="reg-password" placeholder="Password" required>
+        <input type="password" id="reg-confirm-password" placeholder="Confirm Password" required>
+        <button type="submit" class="btn">Register</button>
+      </form>
+      <p class="form-note">Already have an account? <a href="#" id="login-link">Login here</a></p>
+    </div>
+  </div>
+</div>
+
+<div id="unit-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeUnitModal()">&times;</span>
+    <div id="unit-detail-content">
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#available-units">Available Units</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#">Amenities</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Report Issue</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Management</h4>
+      <ul>
+        <li>Phone: (555) 123-4567</li>
+        <li>Email: info@centennial.com</li>
+        <li>Hours: 9AM - 6PM</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Centennial Apartments. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Room Preview Modal -->
+<div id="roomPreviewModal" class="room-preview-modal">
+  <div class="room-preview-content">
+    <div class="room-preview-header">
+      <h2 id="previewUnitName">Unit Name</h2>
+      <button class="room-preview-close" onclick="closeRoomPreview()">&times;</button>
+    </div>
+    <div class="room-preview-gallery">
+      <img id="previewRoomImage" src="hero.jfif" alt="Room Preview">
+      <span class="room-preview-badge" id="previewBadge">Available</span>
+    </div>
+    <div class="room-preview-body">
+      <div class="room-preview-info">
+        <div class="room-info-item">
+          <div class="room-info-label">Square Feet</div>
+          <div class="room-info-value" id="previewSqFt">--</div>
+        </div>
+        <div class="room-info-item">
+          <div class="room-info-label">Bedrooms</div>
+          <div class="room-info-value" id="previewBeds">--</div>
+        </div>
+        <div class="room-info-item">
+          <div class="room-info-label">Bathrooms</div>
+          <div class="room-info-value" id="previewBaths">--</div>
+        </div>
+      </div>
+
+      <div class="room-preview-section">
+        <h3>About This Unit</h3>
+        <p class="room-preview-description" id="previewDescription">
+          Premium apartment with modern finishes and premium amenities.
+        </p>
+      </div>
+
+      <div class="room-preview-section">
+        <h3>Amenities & Features</h3>
+        <div class="amenities-list" id="amenitiesList">
+          <div class="amenity-item">
+            <span class="amenity-icon">✓</span>
+            <span class="amenity-text">Air Conditioning</span>
+          </div>
+          <div class="amenity-item">
+            <span class="amenity-icon">✓</span>
+            <span class="amenity-text">WiFi Included</span>
+          </div>
+          <div class="amenity-item">
+            <span class="amenity-icon">✓</span>
+            <span class="amenity-text">Furnished</span>
+          </div>
+          <div class="amenity-item">
+            <span class="amenity-icon">✓</span>
+            <span class="amenity-text">Parking Available</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-preview-pricing">
+        <div>
+          <div class="price-label">Monthly Rent</div>
+          <div class="price-amount" id="previewPrice">$0</div>
+        </div>
+        <div style="font-size: 13px; color: var(--text-light);">
+          All utilities included
+        </div>
+      </div>
+
+      <div class="room-preview-actions">
+        <button class="btn-inquiry" onclick="submitInquiry()">Submit Inquiry</button>
+        <button class="btn-schedule" onclick="scheduleViewing()">Schedule Viewing</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
