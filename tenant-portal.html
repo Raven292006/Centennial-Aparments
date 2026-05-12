@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tenant Portal - Centennial Apartments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="portal-body">
+
+<header class="portal-header">
+  <div class="header-container">
+    <div class="logo">CENTENNIAL</div>
+    <div class="user-info">
+      <div class="user-chip">
+        <span class="user-chip-label">Resident</span>
+        <span id="tenant-name">Tenant Name</span>
+      </div>
+      <button id="logout-btn" class="nav-btn logout-btn">Logout</button>
+    </div>
+  </div>
+</header>
+
+<div class="portal-container portal-shell">
+  <aside class="sidebar portal-sidebar">
+    <div class="portal-side-top">
+      <p class="portal-side-kicker">Tenant Portal</p>
+      <h2>What do you need today?</h2>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" data-section="dashboard">
+        <span class="icon">HOME</span>
+        <span>Home</span>
+      </a>
+      <a href="#" class="nav-item" data-section="bills">
+        <span class="icon">BILL</span>
+        <span>Pay Bills</span>
+      </a>
+      <a href="#" class="nav-item" data-section="announcements">
+        <span class="icon">NEWS</span>
+        <span>Notices</span>
+      </a>
+      <a href="#" class="nav-item" data-section="requests">
+        <span class="icon">FIX</span>
+        <span>Request Repair</span>
+      </a>
+      <a href="#" class="nav-item" data-section="reports">
+        <span class="icon">HELP</span>
+        <span>Report Problem</span>
+      </a>
+      <a href="#" class="nav-item" data-section="documents">
+        <span class="icon">FILE</span>
+        <span>My Documents</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main class="portal-main">
+    <section id="dashboard" class="portal-section active">
+      <div class="portal-workspace-heading">
+        <div>
+          <p class="portal-eyebrow">Home</p>
+          <h1>Welcome back, <span id="tenant-dashboard-name">Resident</span></h1>
+        </div>
+        <div class="portal-quick-actions">
+          <button class="btn" onclick="openSection('bills')">Pay or View Bills</button>
+          <button class="btn btn-secondary-portal" onclick="openSection('requests')">Ask for a Repair</button>
+          <button class="btn btn-secondary-portal" onclick="openSection('reports')">Report a Problem</button>
+        </div>
+      </div>
+
+      <div class="portal-overview-grid">
+        <div class="overview-card primary">
+          <span class="overview-label">Amount Due</span>
+          <strong id="outstanding-amount">$1,600</strong>
+          <p>See what you owe and whether it is paid.</p>
+          <button class="btn" onclick="openSection('bills')">Go to Bills</button>
+        </div>
+        <div class="overview-card">
+          <span class="overview-label">Assigned Unit</span>
+          <strong id="user-unit">Unit 201</strong>
+          <p id="user-floor">2nd Floor</p>
+        </div>
+        <div class="overview-card">
+          <span class="overview-label">Lease Dates</span>
+          <strong id="lease-start">January 2026</strong>
+          <p>to <span id="lease-end">December 2026</span></p>
+        </div>
+        <div class="overview-card">
+          <span class="overview-label">Requests</span>
+          <strong id="pending-requests">2 active requests</strong>
+          <p>Check repairs and reported problems.</p>
+        </div>
+      </div>
+
+      <div class="portal-task-grid">
+        <button class="task-card" onclick="openSection('announcements')">
+          <span class="task-code">NEWS</span>
+          <strong>Read Notices</strong>
+          <span id="announcement-count">3 active notices</span>
+        </button>
+        <button class="task-card" onclick="openSection('requests')">
+          <span class="task-code">FIX</span>
+          <strong>Ask for a Repair</strong>
+          <span>For leaks, lights, appliances, and repairs</span>
+        </button>
+        <button class="task-card" onclick="openSection('reports')">
+          <span class="task-code">HELP</span>
+          <strong>Report a Problem</strong>
+          <span>For noise, safety, or other concerns</span>
+        </button>
+        <button class="task-card" onclick="openSection('documents')">
+          <span class="task-code">FILE</span>
+          <strong>View Documents</strong>
+          <span>Lease, house rules, and guides</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="bills" class="portal-section">
+      <div class="section-heading">
+        <div>
+          <p class="portal-eyebrow">Pay Bills</p>
+          <h2>Your Bills</h2>
+        </div>
+        <button class="btn btn-secondary-portal section-back-btn" onclick="openSection('dashboard')">Back to Home</button>
+      </div>
+      <p class="section-intro section-help">Check your monthly rent, utilities, total amount, and payment status.</p>
+      <div class="bills-container portal-panel">
+        <table class="bills-table">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Rent</th>
+              <th>Utilities</th>
+              <th>Other Fees</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="announcements" class="portal-section">
+      <div class="section-heading">
+        <div>
+          <p class="portal-eyebrow">Notices</p>
+          <h2>Building Notices</h2>
+        </div>
+        <button class="btn btn-secondary-portal section-back-btn" onclick="openSection('dashboard')">Back to Home</button>
+      </div>
+      <p class="section-intro section-help">Read updates from management, reminders, and important building news.</p>
+      <div class="announcements-list">
+      </div>
+    </section>
+
+    <section id="requests" class="portal-section">
+      <div class="section-heading">
+        <div>
+          <p class="portal-eyebrow">Request Repair</p>
+          <h2>Ask for a Repair</h2>
+        </div>
+        <div class="section-actions">
+          <button class="btn btn-secondary-portal section-back-btn" onclick="openSection('dashboard')">Back to Home</button>
+          <button class="btn btn-create" onclick="openRequestForm()">Create New Request</button>
+        </div>
+      </div>
+      <p class="section-intro section-help">Use this for things that need fixing inside your unit or the building.</p>
+      <div class="requests-list">
+      </div>
+    </section>
+
+    <section id="reports" class="portal-section">
+      <div class="section-heading">
+        <div>
+          <p class="portal-eyebrow">Report Problem</p>
+          <h2>Tell Management About a Problem</h2>
+        </div>
+        <div class="section-actions">
+          <button class="btn btn-secondary-portal section-back-btn" onclick="openSection('dashboard')">Back to Home</button>
+          <button class="btn btn-create" onclick="openReportForm()">Report New Issue</button>
+        </div>
+      </div>
+      <p class="section-intro section-help">Use this for concerns like noise, safety, behavior, or other non-repair issues.</p>
+      <div class="reports-list">
+      </div>
+    </section>
+
+    <section id="documents" class="portal-section">
+      <div class="section-heading">
+        <div>
+          <p class="portal-eyebrow">My Documents</p>
+          <h2>Your Documents</h2>
+        </div>
+        <button class="btn btn-secondary-portal section-back-btn" onclick="openSection('dashboard')">Back to Home</button>
+      </div>
+      <p class="section-intro section-help">Download your lease, house rules, emergency guide, and facility guide.</p>
+      <div class="documents-list portal-documents-grid">
+        <div class="document-item">
+          <span class="doc-icon">PDF</span>
+          <div class="doc-info">
+            <h4>Lease Agreement</h4>
+            <p class="doc-date">Signed: January 1, 2026</p>
+          </div>
+          <button class="btn-small" onclick="downloadDocument('lease')">Download</button>
+        </div>
+
+        <div class="document-item">
+          <span class="doc-icon">DOC</span>
+          <div class="doc-info">
+            <h4>House Rules</h4>
+            <p class="doc-date">Updated: January 2026</p>
+          </div>
+          <button class="btn-small" onclick="downloadDocument('rules')">Download</button>
+        </div>
+
+        <div class="document-item">
+          <span class="doc-icon">EMR</span>
+          <div class="doc-info">
+            <h4>Emergency Procedures</h4>
+            <p class="doc-date">Updated: March 2026</p>
+          </div>
+          <button class="btn-small" onclick="downloadDocument('emergency')">Download</button>
+        </div>
+
+        <div class="document-item">
+          <span class="doc-icon">GUI</span>
+          <div class="doc-info">
+            <h4>Facility Usage Guide</h4>
+            <p class="doc-date">Updated: February 2026</p>
+          </div>
+          <button class="btn-small" onclick="downloadDocument('facilities')">Download</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="form-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeFormModal()">&times;</span>
+    <div id="form-content"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

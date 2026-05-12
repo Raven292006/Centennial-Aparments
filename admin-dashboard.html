@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Centennial Apartments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body portal-body admin-premium-body">
+
+<header class="admin-header portal-header">
+  <div class="header-container">
+    <div class="logo">CENTENNIAL ADMIN</div>
+    <div class="user-info">
+      <div class="user-chip">
+        <span class="user-chip-label">Administrator</span>
+        <span id="admin-name">Administrator</span>
+      </div>
+      <button id="admin-logout-btn" class="nav-btn logout-btn">Logout</button>
+    </div>
+  </div>
+</header>
+
+<div class="admin-container portal-shell">
+  <aside class="admin-sidebar portal-sidebar">
+    <div class="portal-side-top">
+      <p class="portal-side-kicker">Admin Portal</p>
+      <h2>Choose what you want to manage.</h2>
+    </div>
+
+    <nav class="admin-nav sidebar-nav">
+      <a href="#" class="admin-nav-item nav-item active" data-section="dashboard">
+        <span class="icon">HOME</span>
+        <span>Home</span>
+      </a>
+      <a href="#" class="admin-nav-item nav-item" data-section="tenants">
+        <span class="icon">PEOPLE</span>
+        <span>Tenants</span>
+      </a>
+      <a href="#" class="admin-nav-item nav-item" data-section="units">
+        <span class="icon">APT</span>
+        <span>Apartments</span>
+      </a>
+      <a href="#" class="admin-nav-item nav-item" data-section="requests">
+        <span class="icon">FIX</span>
+        <span>Repair Requests</span>
+      </a>
+      <a href="#" class="admin-nav-item nav-item" data-section="reports">
+        <span class="icon">HELP</span>
+        <span>Tenant Problems</span>
+      </a>
+      <a href="#" class="admin-nav-item nav-item" data-section="announcements">
+        <span class="icon">NEWS</span>
+        <span>Notices</span>
+      </a>
+      <a href="#" class="admin-nav-item nav-item" data-section="billing">
+        <span class="icon">PAY</span>
+        <span>Payments</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main class="admin-main portal-main">
+    <section id="dashboard" class="admin-section portal-section active">
+      <div class="portal-workspace-heading">
+        <div>
+          <p class="portal-eyebrow">Home</p>
+          <h1>What needs attention?</h1>
+        </div>
+        <div class="portal-quick-actions">
+          <button class="btn" onclick="openAdminSection('tenants')">Add or Edit Tenant</button>
+          <button class="btn btn-secondary-portal" onclick="openAdminSection('requests')">Check Repairs</button>
+          <button class="btn btn-secondary-portal" onclick="openAdminSection('billing')">Check Payments</button>
+        </div>
+      </div>
+
+      <div class="admin-overview-grid">
+        <div class="overview-card primary">
+          <span class="overview-label">Occupied Apartments</span>
+          <strong id="admin-occupied-units">--</strong>
+          <p id="admin-occupancy-note">Current occupancy</p>
+        </div>
+        <div class="overview-card">
+          <span class="overview-label">Tenants</span>
+          <strong id="admin-active-tenants">--</strong>
+          <p>Resident records on file</p>
+        </div>
+        <div class="overview-card">
+          <span class="overview-label">Needs Attention</span>
+          <strong id="admin-open-work">--</strong>
+          <p>Maintenance and reports</p>
+        </div>
+        <div class="overview-card">
+          <span class="overview-label">Unpaid Total</span>
+          <strong id="admin-outstanding-balance">--</strong>
+          <p>Unpaid billing total</p>
+        </div>
+      </div>
+
+      <div class="portal-task-grid admin-task-grid">
+        <button class="task-card" onclick="openAdminSection('tenants')">
+          <span class="task-code">PEOPLE</span>
+          <strong>Tenants</strong>
+          <span>Add tenants and update lease details</span>
+        </button>
+        <button class="task-card" onclick="openAdminSection('units')">
+          <span class="task-code">APT</span>
+          <strong>Apartments</strong>
+          <span>Assign tenants and update rent</span>
+        </button>
+        <button class="task-card" onclick="openAdminSection('requests')">
+          <span class="task-code">FIX</span>
+          <strong>Repair Requests</strong>
+          <span>Mark repairs pending, active, or done</span>
+        </button>
+        <button class="task-card" onclick="openAdminSection('reports')">
+          <span class="task-code">HELP</span>
+          <strong>Tenant Problems</strong>
+          <span>Review concerns from tenants</span>
+        </button>
+        <button class="task-card" onclick="openAdminSection('announcements')">
+          <span class="task-code">NEWS</span>
+          <strong>Post Notice</strong>
+          <span>Send updates to all tenants</span>
+        </button>
+        <button class="task-card" onclick="openAdminSection('billing')">
+          <span class="task-code">PAY</span>
+          <strong>Payments</strong>
+          <span>Check paid and unpaid bills</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="tenants" class="admin-section portal-section">
+      <div class="section-heading">
+        <div>
+          <p class="portal-eyebrow">Tenants</p>
+          <h2>Tenant List</h2>
+        </div>
+        <div class="section-actions">
+          <button class="btn btn-secondary-portal section-back-btn" onclick="openAdminSection('dashboard')">Back to Home</button>
+          <button class="btn btn-create" onclick="openAddTenantForm()">Add New Tenant</button>
+        </div>
+      </div>
+      <p class="section-intro section-help">Add tenants, update contact information, check lease dates, or remove inactive tenants.</p>
+      <div class="portal-panel">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Unit</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Lease Start</th>
+              <th>Lease End</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <section id="units" class="admin-section portal-section">
+      <div class="section-heading">
+        <div>
+          <p class="portal-eyebrow">Apartments</p>
+          <h2>Apartment List</h2>
+        </div>
+        <div class="section-actions">
+          <button class="btn btn-secondary-portal section-back-btn" onclick="openAdminSection('dashboard')">Back to Home</button>
+          <button class="btn btn-create" onclick="openAddUnitForm()">Add Apartment</button>
+        </div>
+      </div>
+      <p class="section-intro section-help">See which apartments are available, occupied, assigned, and how much rent each apartment costs.</p>
+      <div class="portal-panel">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Unit</th>
+              <th>Type</th>
+              <th>Floor</th>
+              <th>Size</th>
+              <th>Current Tenant</th>
+              <th>Monthly Rent</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <section id="requests" class="admin-section portal-section">
+      <div class="section-heading">
+        <div>
+          <p class="portal-eyebrow">Repair Requests</p>
+          <h2>Repairs Tenants Asked For</h2>
+        </div>
+        <div class="section-actions stacked">
+          <button class="btn btn-secondary-portal section-back-btn" onclick="openAdminSection('dashboard')">Back to Home</button>
+          <div class="filter-group">
+            <button class="filter-btn active" onclick="filterRequests('all')">All</button>
+            <button class="filter-btn" onclick="filterRequests('pending')">Pending</button>
+            <button class="filter-btn" onclick="filterRequests('in-progress')">In Progress</button>
+            <button class="filter-btn" onclick="filterRequests('completed')">Completed</button>
+          </div>
+        </div>
+      </div>
+      <p class="section-intro section-help">Use the buttons on each request to update the repair status.</p>
+      <div class="requests-admin">
+      </div>
+    </section>
+
+    <section id="reports" class="admin-section portal-section">
+      <div class="section-heading">
+        <div>
+          <p class="portal-eyebrow">Tenant Problems</p>
+          <h2>Problems Reported by Tenants</h2>
+        </div>
+        <button class="btn btn-secondary-portal section-back-btn" onclick="openAdminSection('dashboard')">Back to Home</button>
+      </div>
+      <p class="section-intro section-help">Review concerns that are not repair requests, such as noise or safety issues.</p>
+      <div class="reports-admin">
+      </div>
+    </section>
+
+    <section id="announcements" class="admin-section portal-section">
+      <div class="section-heading">
+        <div>
+          <p class="portal-eyebrow">Notices</p>
+          <h2>Notices for Tenants</h2>
+        </div>
+        <div class="section-actions">
+          <button class="btn btn-secondary-portal section-back-btn" onclick="openAdminSection('dashboard')">Back to Home</button>
+          <button class="btn btn-create" onclick="openCreateAnnouncementForm()">Post New Notice</button>
+        </div>
+      </div>
+      <p class="section-intro section-help">Post updates that tenants will see in their portal.</p>
+      <div class="announcements-admin">
+      </div>
+    </section>
+
+    <section id="billing" class="admin-section portal-section">
+      <div class="section-heading">
+        <div>
+          <p class="portal-eyebrow">Payments</p>
+          <h2>Payments and Unpaid Bills</h2>
+        </div>
+        <button class="btn btn-secondary-portal section-back-btn" onclick="openAdminSection('dashboard')">Back to Home</button>
+      </div>
+      <p class="section-intro section-help">Check expected rent, received payments, and unpaid balances.</p>
+      <div class="billing-summary portal-billing-summary">
+        <div class="billing-card portal-card">
+          <h3>Total Expected Revenue</h3>
+          <p class="big-number">$9,850</p>
+        </div>
+        <div class="billing-card portal-card">
+          <h3>Total Received</h3>
+          <p class="big-number">$7,250</p>
+        </div>
+        <div class="billing-card alert portal-card">
+          <h3>Outstanding</h3>
+          <p class="big-number">$2,600</p>
+        </div>
+      </div>
+
+      <div class="section-heading admin-subheading">
+        <div>
+          <h2>Bill Details</h2>
+        </div>
+      </div>
+
+      <div class="portal-panel">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Tenant</th>
+              <th>Unit</th>
+              <th>Month</th>
+              <th>Amount</th>
+              <th>Due Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section-heading admin-subheading">
+        <div>
+          <h2>Submitted Bill Payments</h2>
+        </div>
+      </div>
+
+      <div id="bill-payment-reviews" class="payment-review-list">
+      </div>
+
+      <div class="section-heading admin-subheading">
+        <div>
+          <h2>Booking Payment Reviews</h2>
+        </div>
+      </div>
+
+      <div id="booking-payment-reviews" class="payment-review-list">
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="form-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeFormModal()">&times;</span>
+    <div id="form-content"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
